@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Infinite Health"</Description>
+      <LastState Activated="1"/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+aobscan(health,8B 47 60 48 89 47 60 83 EC 0C)
+
+health+3:
+db 40
+
+ 
+ 
+[DISABLE]
+
+aobscan(health,8B 47 60 40 89 47 60 83 EC 0C)
+
+health+3:
+db 48
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"Infinite Super Meter"</Description>
+      <LastState Activated="1"/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+aobscan(cardCheck, D9 5E 68 8B 46 40)
+alloc(cardCheckMem,$1000)
+label(cardCheckOC)
+label(cardCheckR)
+
+cardCheckMem:
+fstp st(0)
+mov dword ptr[esi+68],(float)50.0
+fld dword ptr[esi+68]
+
+cardCheckOC:
+  fstp dword ptr [esi+68]
+  mov eax,[esi+40]
+  jmp cardCheckR
+
+cardCheck:
+  jmp cardCheckMem
+  nop
+cardCheckR:
+registersymbol(cardCheck)
+[DISABLE]
+
+cardCheck:
+  db D9 5E 68 8B 46 40
+
+unregistersymbol(cardCheck)
+dealloc(cardCheckMem)
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

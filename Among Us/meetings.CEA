@@ -1,0 +1,21 @@
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [esi+30],100 // a stupid amount of meetings
+
+
+originalcode:
+push [esi+30]
+push 00000086
+
+exit:
+jmp returnhere
+
+"GameAssembly.dll"+227337:
+jmp newmem
+nop 3
+returnhere:
+

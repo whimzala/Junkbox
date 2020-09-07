@@ -1,0 +1,19 @@
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [esi+20],(float)0 // no kill time, fast kills, the button will be invisible but just click where it would normally be
+
+
+originalcode:
+movss xmm0,[esi+20]
+
+exit:
+jmp returnhere
+
+"GameAssembly.dll"+227426:
+jmp newmem
+returnhere:
+

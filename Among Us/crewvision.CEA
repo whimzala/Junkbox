@@ -1,0 +1,19 @@
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [esi+18],(float)100 // 100x crew vision
+
+
+originalcode:
+movss xmm0,[esi+18]
+
+exit:
+jmp returnhere
+
+"GameAssembly.dll"+2273DE:
+jmp newmem
+returnhere:
+

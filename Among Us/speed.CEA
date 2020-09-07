@@ -1,0 +1,18 @@
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [esi+14],(float)2 // gives player 2x speed
+
+originalcode:
+movss xmm0,[esi+14]
+
+exit:
+jmp returnhere
+
+"GameAssembly.dll"+2273BD:
+jmp newmem
+returnhere:
+

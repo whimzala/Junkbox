@@ -12,7 +12,7 @@ movss xmm0,[esi+14]
 exit:
 jmp returnhere
 
-"GameAssembly.dll"+2273BD:
+"GameAssembly.dll"+2279BD:
 jmp newmem
 returnhere:
 

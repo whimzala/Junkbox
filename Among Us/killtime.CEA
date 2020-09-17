@@ -4,8 +4,7 @@ label(originalcode)
 label(exit)
 
 newmem:
-mov [esi+20],(float)0 // no kill time, fast kills, the button will be invisible but just click where it would normally be
-
+mov [esi+20],(float)0
 
 originalcode:
 movss xmm0,[esi+20]
@@ -16,4 +15,61 @@ jmp returnhere
 "GameAssembly.dll"+227A26:
 jmp newmem
 returnhere:
+
+alloc(newmem1,2048)
+label(returnhere1)
+label(originalcode1)
+label(exit1)
+
+newmem1:
+mov [eax+20],(float)0
+
+originalcode1:
+mov eax,[eax+20]
+mov [edi+1C],eax
+
+exit1:
+jmp returnhere1
+
+"GameAssembly.dll"+2061DC:
+jmp newmem1
+nop
+returnhere1:
+
+alloc(newmem2,2048)
+label(returnhere2)
+label(originalcode2)
+label(exit2)
+
+newmem2:
+mov [edi+20],(float)0
+
+originalcode2:
+movss xmm0,[edi+20]
+
+exit2:
+jmp returnhere2
+
+"GameAssembly.dll"+22717A:
+jmp newmem2
+returnhere2:
+
+alloc(newmem3,2048)
+label(returnhere3)
+label(originalcode3)
+label(exit3)
+
+newmem3:
+mov [ebp-04],(float)0
+
+originalcode3:
+movss xmm0,[ebp-04]
+
+exit3:
+jmp returnhere3
+
+"GameAssembly.dll"+2285ED:
+jmp newmem3
+returnhere3:
+
 

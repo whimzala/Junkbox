@@ -1,0 +1,20 @@
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [esi+40],2
+
+originalcode:
+mov ecx,[esi+40]
+mov eax,[eax+08]
+
+exit:
+jmp returnhere
+
+"GameAssembly.dll"+227A70:
+jmp newmem
+nop
+returnhere:
+

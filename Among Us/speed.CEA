@@ -4,7 +4,7 @@ label(originalcode)
 label(exit)
 
 newmem:
-mov [esi+14],(float)2 // gives player 2x speed
+mov [esi+14],(float)2
 
 originalcode:
 movss xmm0,[esi+14]
@@ -16,3 +16,77 @@ jmp returnhere
 jmp newmem
 returnhere:
 
+alloc(newmem1,2048)
+label(returnhere1)
+label(originalcode1)
+label(exit1)
+
+newmem1:
+mov [eax+14],(float)2
+
+originalcode1:
+movss xmm0,[eax+14]
+
+exit1:
+jmp returnhere1
+
+"GameAssembly.dll"+1BB1C8:
+jmp newmem1
+returnhere1:
+
+alloc(newmem2,2048)
+label(returnhere2)
+label(originalcode2)
+label(exit2)
+
+newmem2:
+mov [eax+14],(float)2
+
+
+originalcode2:
+mov eax,[eax+14]
+mov [edi+1C],eax
+
+exit2:
+jmp returnhere2
+
+"GameAssembly.dll"+20619D:
+jmp newmem2
+nop
+returnhere2:
+
+alloc(newmem3,2048)
+label(returnhere3)
+label(originalcode3)
+label(exit3)
+
+newmem3:
+mov [ebp-04],(float)2
+
+originalcode3:
+movss xmm0,[ebp-04]
+
+exit3:
+jmp returnhere3
+
+"GameAssembly.dll"+22857E:
+jmp newmem3
+returnhere3:
+
+alloc(newmem4,2048)
+label(returnhere4)
+label(originalcode4)
+label(exit4)
+
+newmem4:
+mov [edi+14],(float)2
+
+originalcode4:
+movss xmm0,[edi+14]
+
+exit4:
+jmp returnhere4
+
+"GameAssembly.dll"+22711D:
+jmp newmem4
+returnhere4:

@@ -1,20 +1,6 @@
-// wont be updating, useless
+// always gain dna points
 
-alloc(newmem,2048)
-label(returnhere)
-label(originalcode)
-label(exit)
+aobscan(dna,01 47 04 01 87 ?? ?? ?? ?? 83 BF ?? ?? ?? ?? 00 75 1A)
 
-newmem:
-mov [esi+1C],(float)100 // 100x imposter vision
-
-originalcode:
-movss xmm0,[esi+1C]
-
-exit:
-jmp returnhere
-
-"GameAssembly.dll"+227402:
-jmp newmem
-returnhere:
-
+dna:
+db 01 5F 04

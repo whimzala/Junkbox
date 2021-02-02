@@ -1,0 +1,20 @@
+// wont be updating, useless
+
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [esi+1C],(float)100 // 100x imposter vision
+
+originalcode:
+movss xmm0,[esi+1C]
+
+exit:
+jmp returnhere
+
+"GameAssembly.dll"+227402:
+jmp newmem
+returnhere:
+
